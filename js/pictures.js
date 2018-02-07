@@ -11,7 +11,7 @@ var randomNum = function getRandomNum(min, max) {
   return i;
 };
 // функция создания массива из 25 генерируемых объектов
-var renderPhoto = function (^photo) {
+var renderPhoto = function () {
   // создаем объект
   var photoObj = {};
   // выбираем рандомный номер фотографии
