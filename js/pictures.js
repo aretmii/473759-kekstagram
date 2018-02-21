@@ -128,7 +128,7 @@ uploadButtonClose.addEventListener('keydown', function (evt) {
   }
 });
 // обработчик запрещающий закрывать форму при фокусе на комментарии
-uploadFormDescr.addEventListener("keydown", function() {
+uploadFormDescr.addEventListener('keydown', function () {
   event.stopPropagation();
 });
 // обработчик. Отпускаю ПИН, вычисляется уровень эффекта, и записывается в переменную
@@ -192,24 +192,22 @@ var myFunc = function () {
   var hashTagsValue = uploadHashtag.value;
   var hashTagsArr = hashTagsValue.split(' ');
 
-  for (var j = 0; j < hashTagsArr.length; j++) {
-    var arrayItem = hashTagsArr[j];
-    var seen = {};
-    var out = [];
-    if (hashTagsArr[j].length > 20) {
-        uploadHashtag.setCustomValidity('Хэш-тег максимум 20 символов');
-      } else if (hashTagsArr[j].charAt(0) != '#') {
+  for (var z = 0; z < hashTagsArr.length; z++) {
+    var Set;
+    if (hashTagsArr[z].length > 20) {
+      uploadHashtag.setCustomValidity('Хэш-тег максимум 20 символов');
+    } else if (hashTagsArr[z].charAt(0) !== '#') {
         uploadHashtag.setCustomValidity('Хэш-тег должен начинаться с символа #');
-      } else if (hashTagsArr.length > 5) {
-        uploadHashtag.setCustomValidity('Не больше 5 хэштегов');
-      } else if (hashTagsArr[j].length > 20) {
-        uploadHashtag.setCustomValidity('Не больше 20 символов в одном хэштэге');
-      } else if (hashTagsArr.length !== (new Set(hashTagsArr).size)) {
-        uploadHashtag.setCustomValidity('Хэштеги не должны повторяться');
+    } else if (hashTagsArr.length > 5) {
+      uploadHashtag.setCustomValidity('Не больше 5 хэштегов');
+    } else if (hashTagsArr[z].length > 20) {
+      uploadHashtag.setCustomValidity('Не больше 20 символов в одном хэштэге');
+    } else if (hashTagsArr.length !== (new Set(hashTagsArr).size)) {
+      uploadHashtag.setCustomValidity('Хэштеги не должны повторяться');
         // еще нужно добавить нечувствительность к регистру
-      } else {
-        uploadHashtag.setCustomValidity('');
-      }
+    } else {
+      uploadHashtag.setCustomValidity('');
+    }
   }
 };
 
