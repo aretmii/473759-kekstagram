@@ -191,7 +191,7 @@ var closeOverlay = function () {
 }
 // функция закрытия overlay при escButton
 var closeOverlayEsc = function (evt) {
-  if (evt.keyCode == escButton) {
+  if (evt.keyCode === escButton) {
     closeOverlay();
   }
 };

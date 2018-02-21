@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url]
 
 * Студент: [Артемий Седаков](https://up.htmlacademy.ru/javascript/12/user/473759).
-* Наставник: `Неизвестно`.
+* Наставник: [Артемий Седаков](https://up.htmlacademy.ru/javascript/12/user/473759).
 
 ---
 
