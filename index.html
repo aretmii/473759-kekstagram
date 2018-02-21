@@ -8,7 +8,6 @@
   <title>Кекстаграм</title>
 </head>
 <body>
-
 <form class="filters filters-inactive" action="index.html" method="get" autocomplete="off">
   <input type="radio" id="filter-recommend" class="filters-radio" name="filter" value="recommend" checked>
   <label for="filter-recommend" class="filters-item">Рекомендуемые</label>
@@ -23,12 +22,12 @@
   <label for="filter-random" class="filters-item">Случайные</label>
 </form>
 
-<form class="upload-form" id="upload-select-image" method="post" enctype="multipart/form-data" autocomplete="off">
+
+<form class="upload-form" id="upload-select-image" method="post" action="https://js.dump.academy/kekstagram" enctype="multipart/form-data" autocomplete="off">
   <div class="upload-image">
     <input type="file" id="upload-file" class="upload-input" name="filename" required>
     <label class="upload-file upload-control" for="upload-file"></label>
   </div>
-
   <div class="upload-overlay hidden">
     <div class="upload-effect">
       <div class="upload-effect__container">
@@ -41,12 +40,10 @@
                   class="upload-resize-control upload-resize-controls-button upload-resize-controls-button-inc">+
           </button>
         </fieldset>
-
         <div class="upload-form-preview">
           <div></div>
           <img src="img/upload-default-image.jpg" class="effect-image-preview">
         </div>
-
         <fieldset class="upload-effect-controls">
           <div class="upload-effect-level">
             <input type="number" class="upload-effect-level-value" name="effect-level" value="20">
@@ -55,67 +52,56 @@
               <div class="upload-effect-level-val"></div>
             </div>
           </div>
-
           <input type="radio" name="effect" id="upload-effect-none" value="none" checked>
           <label class="upload-effect-label" for="upload-effect-none">
             <div class="upload-effect-preview"></div>
             Оригинал
           </label>
-
           <input type="radio" name="effect" id="upload-effect-chrome" value="chrome">
           <label class="upload-effect-label upload-effect-label-chrome" for="upload-effect-chrome">
             <div class="upload-effect-preview"></div>
             Хром
           </label>
-
           <input type="radio" name="effect" id="upload-effect-sepia" value="sepia">
           <label class="upload-effect-label upload-effect-label-sepia" for="upload-effect-sepia">
             <div class="upload-effect-preview"></div>
             Сепия
           </label>
-
           <input type="radio" name="effect" id="upload-effect-marvin" value="marvin">
           <label class="upload-effect-label upload-effect-label-marvin" for="upload-effect-marvin">
             <div class="upload-effect-preview"></div>
             Марвин
           </label>
-
           <input type="radio" name="effect" id="upload-effect-phobos" value="phobos">
           <label class="upload-effect-label upload-effect-label-phobos" for="upload-effect-phobos">
             <div class="upload-effect-preview"></div>
             Фобос
           </label>
-
           <input type="radio" name="effect" id="upload-effect-heat" value="heat">
           <label class="upload-effect-label upload-effect-label-heat" for="upload-effect-heat">
             <div class="upload-effect-preview"></div>
             Зной
           </label>
         </fieldset>
-
-        <input class="upload-form-hashtags" name="hashtags" placeholder="#хэш-тег">
-
-        <textarea class="upload-form-description" name="description" placeholder="Ваш комментарий..."></textarea>
-
+        <input class="upload-form-hashtags" name="hashtags" placeholder="#хэш-тег" type="text" value="" selectionStart="#">
+        <textarea class="upload-form-description" name="description" placeholder="Ваш комментарий..." maxlength="140"></textarea>
         <button class="upload-form-cancel" type="reset" id="upload-cancel">Закрыть</button>
         <button class="upload-form-submit" type="submit" id="upload-submit">Отправить</button>
       </div>
     </div>
   </div>
-
   <div class="upload-message hidden">
     <div class="upload-message-container"></div>
   </div>
 </form>
 
-<div class="pictures container" style="font-size: 12px;"></div>
 
+<div class="pictures container" style="font-size: 12px;"></div>
 <footer class="footer container">
   <div class="center-wrapper">
     <section class="footer-logo">
       Сделано в <a tabindex="1" href="https://htmlacademy.ru/intensive/javascript" class="footer-logo-link"><img src="img/ha-logo.png" class="footer-logo-image" width="130" alt="HTML Academy">HTML Academy</a> &copy; 2018
     </section>
-
     <nav class="footer-social">
       <a href="https://twitter.com/htmlacademy_ru" alt="twitter"
          class="footer-social-item footer-social-item-twitter" target="_blank" rel="nofollow">Twitter</a>
@@ -127,8 +113,6 @@
     </nav>
   </div>
 </footer>
-
-
 <div class="gallery-overlay hidden">
   <span class="gallery-overlay-close">&times;</span>
   <div class="gallery-overlay-preview">
@@ -139,7 +123,6 @@
     </div>
   </div>
 </div>
-
 <template id="picture-template" style="display: none">
   <a href="" class="picture">
     <img src="" width="182" height="182">
