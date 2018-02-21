@@ -65,7 +65,6 @@ var effectList = document.querySelector('.upload-effect-controls');
 var effectImgPreview = document.querySelector('.effect-image-preview');
 var effectOriginal = document.querySelector('.upload-effect-label');
 // переменные для функций открытия фотографий в полноэкранный режим OVERLAY
-var picContainer = document.querySelector('.picture');
 var picOverlay = document.querySelector('.gallery-overlay');
 var imgSrcOverlay = document.querySelector('.gallery-overlay-image');
 var overlayClose = document.querySelector('.gallery-overlay-close');
