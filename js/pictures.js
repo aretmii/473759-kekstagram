@@ -40,13 +40,13 @@ var renderPhoto = function () {
 // функция записи DocumentFragment
 var fragment = document.createDocumentFragment();
 
-  for (var j = 0; j < 26; j++) {
-    fragment.appendChild(renderPhoto(PHOTOS[j]));
-    document.querySelector('.gallery-overlay-image').src = PHOTOS[j].url;
-    document.querySelector('.likes-count').textContent = PHOTOS[j].likes;
-    document.querySelector('.comments-count').textContent = PHOTOS[j].comments;
-    similarPictureElement.appendChild(fragment);
-  }
+for (var j = 0; j < 26; j++) {
+  fragment.appendChild(renderPhoto(PHOTOS[j]));
+  document.querySelector('.gallery-overlay-image').src = PHOTOS[j].url;
+  document.querySelector('.likes-count').textContent = PHOTOS[j].likes;
+  document.querySelector('.comments-count').textContent = PHOTOS[j].comments;
+  similarPictureElement.appendChild(fragment);
+}
 // убираем класс hidden из popup
 // document.querySelector('.gallery-overlay').classList.remove('hidden');
 
@@ -64,11 +64,6 @@ var effectValue = document.querySelector('.upload-effect-level-val');
 var effectList = document.querySelector('.upload-effect-controls');
 var effectImgPreview = document.querySelector('.effect-image-preview');
 var effectOriginal = document.querySelector('.upload-effect-label');
-var effectChrome = document.querySelector('.upload-effect-label-chrome');
-var effectSepia = document.querySelector('.upload-effect-label-sepia');
-var effectMarvin = document.querySelector('.upload-effect-label-marvin');
-var effectPhobos = document.querySelector('.upload-effect-label-phobos');
-var effectHeat = document.querySelector('.upload-effect-label-heat');
 // переменные для функций открытия фотографий в полноэкранный режим OVERLAY
 var picContainer = document.querySelector('.picture');
 var picOverlay = document.querySelector('.gallery-overlay');
@@ -110,7 +105,7 @@ var levelPinUp = function () {
   var x = lineLength();
   var y = levelValue();
   // считаем в процентах. х - 100%; у - ?
-  var effectLevel = y/x*100;
+  var effectLevel = y / x * 100;
   return effectLevel;
 };
 // функция добавляющая класс стиля изображению
@@ -123,22 +118,7 @@ var effectFunc = function (event) {
   effectImgPreview.className = 'effect-image-preview' + ' ' + imgEffect;
   effectValue.style.width = '100%';
   effectLevelPin.style.left = '100%';
-  console.log(effectValue.style.width);
 };
-// -----------------------ФУНКЦИИ OVERLAY--------------------------------------
-// функция открытия фотографии в полноэкранном режиме  overlay
-
-// // функция закрытия overlay
-// var fullScreenClose = function () {
-//   picOverlay.classList.add('hidden');
-//   document.removeEventListener('keydown', fullScreenCloseEsc);
-// };
-// // функция закрытия overlay при нажатии на Esc
-// var fullScreenCloseEsc = function (evt) {
-//   if (evt.keyCode === escButton) {
-//     fullScreenClose();
-//   }
-// };
 // ----------------------ОБРАБОТЧИКИ-------------------------
 // обработчик отслеживающий изменения INPUT и открывающий редактор
 uploadFileInput.onchange = uploadOverlayOpen;
@@ -157,7 +137,6 @@ effectLevelPin.addEventListener('mouseup', function () {
   var levelLineValue = levelPinUp();
   effectValue.style.width = levelLineValue + '%';
   effectLevelPin.style.left = levelLineValue + '%';
-  console.log(levelLineValue + '%');
 });
 // обработчик для закрытия Popup при нажатии на оригинальный стиль
 effectOriginal.addEventListener('mouseup', function () {
@@ -167,20 +146,14 @@ effectOriginal.addEventListener('mouseup', function () {
 // нажимаем на эффект, эффект получает уровень 100%,
 // фотографии добавляется css стиль соотв. эффекту
 effectList.addEventListener('click', effectFunc);
-
-// обработчик открывающий Overlay при нажатии на миниатюру
-// var pictures = document.querySelector('.pictures');
 // функция открытия overlay
 var overlayOpen = function (event) {
   var target = event.target;
-  document.addEventListener('keydown', closeOverlayEsc);
   var srcImg = target.src;
-  console.log(target.src);
-  if (target = 'a') {
-    imgSrcOverlay.src = srcImg;
-    picOverlay.classList.remove('hidden');
-    event.preventDefault();
-  }
+  imgSrcOverlay.src = srcImg;
+  picOverlay.classList.remove('hidden');
+  document.addEventListener('keydown', closeOverlayEsc);
+  event.preventDefault();
 };
 // функция закрытия при клике overlayOpen
 var closeOverlay = function () {
@@ -188,7 +161,7 @@ var closeOverlay = function () {
   document.removeEventListener('keydown', function (evt) {
     closeOverlayEsc(evt);
   });
-}
+};
 // функция закрытия overlay при escButton
 var closeOverlayEsc = function (evt) {
   if (evt.keyCode === escButton) {
