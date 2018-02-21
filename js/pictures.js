@@ -203,3 +203,14 @@ similarPictureElement.addEventListener('click', function () {
 overlayClose.addEventListener('click', function () {
   closeOverlay();
 });
+=======
+for (var j = 0; j < 26; j++) {
+  fragment.appendChild(renderPhoto(PHOTOS[j]));
+  document.querySelector('.gallery-overlay-image').src = PHOTOS[j].url;
+  document.querySelector('.likes-count').textContent = PHOTOS[j].likes;
+  document.querySelector('.comments-count').textContent = PHOTOS[j].comments;
+}
+similarPictureElement.appendChild(fragment);
+// убираем класс hidden из popup
+document.querySelector('.gallery-overlay').classList.remove('hidden');
+
