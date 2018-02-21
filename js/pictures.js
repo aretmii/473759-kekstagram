@@ -47,15 +47,11 @@ for (var j = 0; j < 26; j++) {
   document.querySelector('.comments-count').textContent = PHOTOS[j].comments;
   similarPictureElement.appendChild(fragment);
 }
-// убираем класс hidden из popup
-// document.querySelector('.gallery-overlay').classList.remove('hidden');
-
 // module4-task1 Загрузка изображения и показ формы
-// При наступлении события change открывается форма редактирования фотографии
-// переменная с кнопкой "О"
 var uploadFileInput = document.querySelector('#upload-file');
 var uploadOverlay = document.querySelector('.upload-overlay');
 var uploadButtonClose = document.querySelector('.upload-form-cancel');
+var uploadFormDescr = document.querySelector('.upload-form-description');
 // переменные ползунка редактора
 var effectLevelPin = document.querySelector('.upload-effect-level-pin');
 var effectLevelLine = document.querySelector('.upload-effect-level-line');
@@ -131,6 +127,10 @@ uploadButtonClose.addEventListener('keydown', function (evt) {
     uploadOverlayClose();
   }
 });
+// обработчик запрещающий закрывать форму при фокусе на комментарии
+uploadFormDescr.addEventListener('keydown', function () {
+  event.stopPropagation();
+});
 // обработчик. Отпускаю ПИН, вычисляется уровень эффекта, и записывается в переменную
 effectLevelPin.addEventListener('mouseup', function () {
   var levelLineValue = levelPinUp();
@@ -174,4 +174,43 @@ similarPictureElement.addEventListener('click', function () {
 // обработчик закрытия overlayOpen
 overlayClose.addEventListener('click', function () {
   closeOverlay();
+});
+// ВАЛИДАЦИЯ
+var uploadHashtag = document.querySelector('.upload-form-hashtags');
+var submitButton = document.querySelector('.upload-form-submit');
+// функция валидации формы
+
+// Набор хэш-тегов можно превратить в массив, воспользовавшись методом split,
+
+// После этого, вы можете написать цикл,
+// который будет ходить по полученному массиву и проверять каждый из хэш-тегов
+// на предмет соответствия ограничениям.
+// Если хотя бы один из тегов не проходит
+// нужных проверок, можно воспользоваться методом setCustomValidity для того,
+// чтобы задать полю правильное сообщение об ошибке
+var myFunc = function () {
+  var hashTagsValue = uploadHashtag.value;
+  var hashTagsArr = hashTagsValue.split(' ');
+
+  for (var z = 0; z < hashTagsArr.length; z++) {
+    var Set;
+    if (hashTagsArr[z].length > 20) {
+      uploadHashtag.setCustomValidity('Хэш-тег максимум 20 символов');
+    } else if (hashTagsArr[z].charAt(0) !== '#') {
+      uploadHashtag.setCustomValidity('Хэш-тег должен начинаться с символа #');
+    } else if (hashTagsArr.length > 5) {
+      uploadHashtag.setCustomValidity('Не больше 5 хэштегов');
+    } else if (hashTagsArr[z].length > 20) {
+      uploadHashtag.setCustomValidity('Не больше 20 символов в одном хэштэге');
+    } else if (hashTagsArr.length !== (new Set(hashTagsArr).size)) {
+      uploadHashtag.setCustomValidity('Хэштеги не должны повторяться');
+      // еще нужно добавить нечувствительность к регистру
+    } else {
+      uploadHashtag.setCustomValidity('');
+    }
+  }
+};
+
+submitButton.addEventListener('click', function () {
+  myFunc();
 });
