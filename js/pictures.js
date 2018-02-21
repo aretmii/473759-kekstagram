@@ -197,14 +197,14 @@ var myFunc = function () {
     if (hashTagsArr[z].length > 20) {
       uploadHashtag.setCustomValidity('Хэш-тег максимум 20 символов');
     } else if (hashTagsArr[z].charAt(0) !== '#') {
-        uploadHashtag.setCustomValidity('Хэш-тег должен начинаться с символа #');
+      uploadHashtag.setCustomValidity('Хэш-тег должен начинаться с символа #');
     } else if (hashTagsArr.length > 5) {
       uploadHashtag.setCustomValidity('Не больше 5 хэштегов');
     } else if (hashTagsArr[z].length > 20) {
       uploadHashtag.setCustomValidity('Не больше 20 символов в одном хэштэге');
     } else if (hashTagsArr.length !== (new Set(hashTagsArr).size)) {
       uploadHashtag.setCustomValidity('Хэштеги не должны повторяться');
-        // еще нужно добавить нечувствительность к регистру
+      // еще нужно добавить нечувствительность к регистру
     } else {
       uploadHashtag.setCustomValidity('');
     }
