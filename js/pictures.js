@@ -39,6 +39,7 @@ var renderPhoto = function () {
 };
 // функция записи DocumentFragment
 var fragment = document.createDocumentFragment();
+
   for (var j = 0; j < 26; j++) {
     fragment.appendChild(renderPhoto(PHOTOS[j]));
     document.querySelector('.gallery-overlay-image').src = PHOTOS[j].url;
@@ -190,7 +191,7 @@ var closeOverlay = function () {
 }
 // функция закрытия overlay при escButton
 var closeOverlayEsc = function (evt) {
-  if (evt.keyCode === escButton) {
+  if (evt.keyCode == escButton) {
     closeOverlay();
   }
 };
