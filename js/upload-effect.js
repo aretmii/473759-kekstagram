@@ -73,11 +73,11 @@
   // записываем в переменную значение смещения ПИНа
       var pinVal = (effectLevelPin.offsetLeft - shift.x);
   // устанавливаем максимально и минимальное значение смещения ПИНа внутри ползунка
-      let lowBound = 1;
-      let highBound = 455;
-      let numInput = pinVal;
+      var lowBound = 1;
+      var highBound = 455;
+      var numInput = pinVal;
   // вычисляем, если значение смещения превысило ширину ползунка, уменьшаем его
-      let clamped = Math.max(lowBound, Math.min(numInput, highBound));
+      var clamped = Math.max(lowBound, Math.min(numInput, highBound));
   // и записываем в стили ПИНа
       effectLevelPin.style.left = clamped + "px";
   // изменяем стили в линии уровня заполнения effectValue

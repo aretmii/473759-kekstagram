@@ -46,6 +46,6 @@
     document.querySelector('.gallery-overlay-image').src = PHOTOS[j].url;
     document.querySelector('.likes-count').textContent = PHOTOS[j].likes;
     document.querySelector('.comments-count').textContent = PHOTOS[j].comments;
-    similarPictureElement.appendChild(fragment);
+    window.similarPictureElement.appendChild(fragment);
   }
 })();

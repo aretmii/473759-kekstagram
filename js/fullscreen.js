@@ -19,11 +19,11 @@
   var closeOverlay = function () {
     picOverlay.classList.add('hidden');
     document.removeEventListener('keydown', function (evt) {
-      closeOverlayEsc(evt);
+      window.util.closeOverlayEsc(evt, closeOverlay);
     });
   };
   // обработчик позволяющий открыть overlay при клике по миниатюре
-  similarPictureElement.addEventListener('click', function () {
+  window.similarPictureElement.addEventListener('click', function () {
     overlayOpen(event);
   });
   // обработчик закрытия overlayOpen

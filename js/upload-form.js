@@ -12,10 +12,10 @@
     document.addEventListener('keydown', function (evt) {
       window.util.closeOverlayEsc(evt, uploadOverlayClose);
     });
-  // при открытии формы курсор ПИНа уровня эффекта сразу становится pointer
-    effectLevelPin.style.cursor = "pointer";
-    effectValue.style.width = '455px';
-    effectLevelPin.style.left = '455px';
+    // при открытии формы курсор ПИНа уровня эффекта сразу становится pointer
+    window.effectLevelPin.style.cursor = 'pointer';
+    window.effectValue.style.width = '455px';
+    window.effectLevelPin.style.left = '455px';
   };
   // функция закрытия формы редактирования
   var uploadOverlayClose = function () {
