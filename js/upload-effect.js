@@ -3,9 +3,9 @@
 (function () {
   var effectList = document.querySelector('.upload-effect-controls');
   var effectImgPreview = document.querySelector('.effect-image-preview');
-  var effectOriginal = document.querySelector('.upload-effect-label');
+  // var effectOriginal = document.querySelector('.upload-effect-label');
   var effectVal = document.querySelector('.upload-effect-level-value');
-  var effectSepia = document.querySelector('.effect-image-preview');
+  // var effectSepia = document.querySelector('.effect-image-preview');
   window.effectLevelPin = document.querySelector('.upload-effect-level-pin');
   var effectLevelLine = document.querySelector('.upload-effect-level-line');
   window.effectValue = document.querySelector('.upload-effect-level-val');
@@ -19,15 +19,15 @@
   // функция считают пропорцию, определяет положение пина относительно линии
   var levelPinUp = function () {
     var x = lineLength();
-  // записываем в переменную ширину линии уровня эффекта
-    var q = effectValue.style.width;
-  // приводим строковое значение ширины линии к цифрам
+    // записываем в переменную ширину линии уровня эффекта
+    var q = window.effectValue.style.width;
+    // приводим строковое значение ширины линии к цифрам
     var y = parseInt(q, 10);
     // считаем в процентах. х - 100%; у - ?
     var calc = y / x;
     var effectLevel = calc.toFixed(1);
     effectVal.value = effectLevel;
-    console.log(effectVal.value);
+    // console.log(effectVal.value);
   };
   // функция
   // функция добавляющая класс стиля изображению
@@ -36,8 +36,8 @@
     // находим id input и записываем его в переменную
     var targetInp = targetEff.id;
     // не даем при клике по уровню эффекта убирать класс эффекта
-    uploadEffect.addEventListener('click', function (event) {
-      event.stopPropagation();
+    uploadEffect.addEventListener('click', function (evt) {
+      evt.stopPropagation();
     });
     // убираем из id префикс upload- и записываем в переменную
     // levelPinUp();
@@ -52,7 +52,7 @@
   effectList.addEventListener('click', effectFunc);
   // -------------------------------------------------------------------------------------------ПЕРЕТАСКИВАНИЕ
   // обработчик события перетаскивания PIN
-  effectLevelPin.addEventListener('mousedown', function (evt) {
+  window.effectLevelPin.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
     // записываем в объект начальные координаты ПИНа
     var startCoords = {
@@ -69,27 +69,26 @@
       startCoords = {
         x: moveEvt.clientX
       };
-  // изменяем стили в ПИНе, штобы реализовать смещение
-  // записываем в переменную значение смещения ПИНа
-      var pinVal = (effectLevelPin.offsetLeft - shift.x);
-  // устанавливаем максимально и минимальное значение смещения ПИНа внутри ползунка
+      // изменяем стили в ПИНе, штобы реализовать смещение
+      // записываем в переменную значение смещения ПИНа
+      var pinVal = (window.effectLevelPin.offsetLeft - shift.x);
+      // устанавливаем максимально и минимальное значение смещения ПИНа внутри ползунка
       var lowBound = 1;
       var highBound = 455;
       var numInput = pinVal;
-  // вычисляем, если значение смещения превысило ширину ползунка, уменьшаем его
+      // вычисляем, если значение смещения превысило ширину ползунка, уменьшаем его
       var clamped = Math.max(lowBound, Math.min(numInput, highBound));
-  // и записываем в стили ПИНа
-      effectLevelPin.style.left = clamped + "px";
-  // изменяем стили в линии уровня заполнения effectValue
-      effectValue.style.maxWidth = "455px";
-      effectValue.style.width = effectLevelPin.style.left;
-  // передаем значения в уровень эффекта
+      // и записываем в стили ПИНа
+      window.effectLevelPin.style.left = clamped + 'px';
+      // изменяем стили в линии уровня заполнения effectValue
+      window.effectValue.style.maxWidth = '455px';
+      window.effectValue.style.width = effectLevelPin.style.left;
+      // передаем значения в уровень эффекта
       levelPinUp();
     };
-  // при отпускании ПИНа перестаем слушать события движения мыши
+    // при отпускании ПИНа перестаем слушать события движения мыши
     var onMouseUp = function (upEvt) {
       upEvt.preventDefault();
-
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
     };
