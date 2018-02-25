@@ -82,7 +82,7 @@
       window.effectLevelPin.style.left = clamped + 'px';
       // изменяем стили в линии уровня заполнения effectValue
       window.effectValue.style.maxWidth = '455px';
-      window.effectValue.style.width = effectLevelPin.style.left;
+      window.effectValue.style.width = window.effectLevelPin.style.left;
       // передаем значения в уровень эффекта
       levelPinUp();
     };
