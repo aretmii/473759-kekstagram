@@ -16,13 +16,16 @@
     var hashTagsValue = uploadHashtag.value;
     var hashTagsArr = hashTagsValue.split(' ');
     // функция проверки повторения тегов
-    var uniqHashtags = function (hashTagsArr) {
-        for (var i = 0; i < hashTagsArr.length-1; i++)
-         { for (var j = i+1; j < hashTagsArr.length; j++)
-            { if (hashTagsArr[i] === hashTagsArr[j]) return false; }
-         }
-        return true;
-    }
+    var uniqHashtags = function (arr) {
+      for (var i = 0; i < arr.length-1; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) {
+            return false;
+          }
+        }
+      }
+      return true;
+    };
 
     for (var z = 0; z < hashTagsArr.length; z++) {
       var firstLetter = hashTagsArr[z].charAt(0);
@@ -34,7 +37,7 @@
         uploadHashtag.setCustomValidity('Не больше 5 хэштегов');
       } else if (hashTagsArr[z].length > 20) {
         uploadHashtag.setCustomValidity('Не больше 20 символов в одном хэштэге');
-      } else if (uniqHashtags(hashTagsArr) != true) {
+      } else if (uniqHashtags(hashTagsArr) !== true) {
         uploadHashtag.setCustomValidity('Хэштеги не должны повторяться');
         // еще нужно добавить нечувствительность к регистру
       } else {
