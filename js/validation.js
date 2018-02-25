@@ -17,7 +17,7 @@
     var hashTagsArr = hashTagsValue.split(' ');
     // функция проверки повторения тегов
     var uniqHashtags = function (arr) {
-      for (var i = 0; i < arr.length-1; i++) {
+      for (var i = 0; i < arr.length - 1; i++) {
         for (var j = i + 1; j < arr.length; j++) {
           if (arr[i] === arr[j]) {
             return false;
