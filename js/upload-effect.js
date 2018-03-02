@@ -1,37 +1,17 @@
 'use strict';
-// -------------------------ФУНКЦИИ СТИЛИЗАЦИЙ---------------------------------------------
 (function () {
-  var effectList = document.querySelector('.upload-effect-controls');
-  var effectImgPreview = document.querySelector('.effect-image-preview');
-  // var effectOriginal = document.querySelector('.upload-effect-label');
-  var effectVal = document.querySelector('.upload-effect-level-value');
-  // var effectSepia = document.querySelector('.effect-image-preview');
+  // --------------------------------------------------------------------------------------ПЕРЕМЕННЫЕ
+  window.effectList = document.querySelector('.upload-effect-controls');
+  window.effectImgPreview = document.querySelector('.effect-image-preview');
+  window.effectVal = document.querySelector('.upload-effect-level-value');
+  window.effectChrome = document.querySelector('.effect-image-preview effect-chrome');
   window.effectLevelPin = document.querySelector('.upload-effect-level-pin');
-  var effectLevelLine = document.querySelector('.upload-effect-level-line');
+  window.effectLevelLine = document.querySelector('.upload-effect-level-line');
   window.effectValue = document.querySelector('.upload-effect-level-val');
   var uploadEffect = document.querySelector('.upload-effect-level');
-  // функция вычисляющая длину effectLevelLine
-  var lineLength = function () {
-    var lineLengthValue = effectLevelLine.clientWidth;
-    return lineLengthValue;
-  };
-  // функция применения эффекта при отпускании пина.
-  // функция считают пропорцию, определяет положение пина относительно линии
-  var levelPinUp = function () {
-    var x = lineLength();
-    // записываем в переменную ширину линии уровня эффекта
-    var q = window.effectValue.style.width;
-    // приводим строковое значение ширины линии к цифрам
-    var y = parseInt(q, 10);
-    // считаем в процентах. х - 100%; у - ?
-    var calc = y / x;
-    var effectLevel = calc.toFixed(1);
-    effectVal.value = effectLevel;
-    // console.log(effectVal.value);
-  };
   // функция
   // функция добавляющая класс стиля изображению
-  var effectFunc = function (event) {
+  window.effectFunc = function (event) {
     var targetEff = event.target;
     // находим id input и записываем его в переменную
     var targetInp = targetEff.id;
@@ -40,61 +20,30 @@
       evt.stopPropagation();
     });
     // убираем из id префикс upload- и записываем в переменную
-    // levelPinUp();
     var imgEffect = targetInp.replace('upload-', '');
     effectImgPreview.className = 'effect-image-preview' + ' ' + imgEffect;
-    // effectValue.style.width = '455px';
-    // effectLevelPin.style.left = '455px';
+    console.log(effectImgPreview.className);
+    window.effectValue.style.width = '455px';
+    window.effectLevelPin.style.left = '455px';
   };
-  // обработчик выбора эффекта и наложения эффекта на фото
-  // нажимаем на эффект, эффект получает уровень 100%,
-  // фотографии добавляется css стиль соотв. эффекту
-  effectList.addEventListener('click', effectFunc);
-  // -------------------------------------------------------------------------------------------ПЕРЕТАСКИВАНИЕ
-  // обработчик события перетаскивания PIN
-  window.effectLevelPin.addEventListener('mousedown', function (evt) {
-    evt.preventDefault();
-    // записываем в объект начальные координаты ПИНа
-    var startCoords = {
-      x: evt.clientX,
+  // ----------------------------------------------------------------------------ФУНКЦИИ (ПЕРЕТАСКИВАНИЕ)
+  // функция применения эффекта при отпускании пина.
+  // функция считает пропорцию, определяет положение пина относительно линии
+  window.levelPinUp = function () {
+    // -------------------функция вычисляющая длину effectLevelLine
+    var lineLength = function () {
+      var lineLengthValue = window.effectLevelLine.clientWidth;
+      return lineLengthValue;
     };
-    // обновляем координаты во время перемещения
-    var onMouseMove = function (moveEvt) {
-      moveEvt.preventDefault();
-      // объект шифт получающий смещение курсора
-      var shift = {
-        x: startCoords.x - moveEvt.clientX
-      };
-      // переопределяем начальные координаты ПИНа
-      startCoords = {
-        x: moveEvt.clientX
-      };
-      // изменяем стили в ПИНе, штобы реализовать смещение
-      // записываем в переменную значение смещения ПИНа
-      var pinVal = (window.effectLevelPin.offsetLeft - shift.x);
-      // устанавливаем максимально и минимальное значение смещения ПИНа внутри ползунка
-      var lowBound = 1;
-      var highBound = 455;
-      var numInput = pinVal;
-      // вычисляем, если значение смещения превысило ширину ползунка, уменьшаем его
-      var clamped = Math.max(lowBound, Math.min(numInput, highBound));
-      // и записываем в стили ПИНа
-      window.effectLevelPin.style.left = clamped + 'px';
-      // изменяем стили в линии уровня заполнения effectValue
-      window.effectValue.style.maxWidth = '455px';
-      window.effectValue.style.width = window.effectLevelPin.style.left;
-      // передаем значения в уровень эффекта
-      levelPinUp();
-    };
-    // при отпускании ПИНа перестаем слушать события движения мыши
-    var onMouseUp = function (upEvt) {
-      upEvt.preventDefault();
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    };
-    // обработчики передвижения и отпускания ПИНа (делается на effectLevelLine)
-    // для перемещения только внутри линии value
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-  });
+    // вызываем функцию для вычислени длины и записываем результат в x
+    var x = lineLength();
+    // записываем в переменную ширину линии уровня эффекта
+    var q = window.effectValue.style.width;
+    // приводим строковое значение ширины линии к цифрам
+    var y = parseInt(q, 10);
+    // считаем в процентах. х - 100%; у - ?
+    var calc = y / x;
+    // форматируем число приводим к одному значению после 0.
+    window.effectLevel = calc.toFixed(1);
+  };
 })();
