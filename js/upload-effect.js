@@ -21,8 +21,7 @@
     });
     // убираем из id префикс upload- и записываем в переменную
     var imgEffect = targetInp.replace('upload-', '');
-    effectImgPreview.className = 'effect-image-preview' + ' ' + imgEffect;
-    console.log(effectImgPreview.className);
+    window.effectImgPreview.className = 'effect-image-preview' + ' ' + imgEffect;
     window.effectValue.style.width = '455px';
     window.effectLevelPin.style.left = '455px';
   };

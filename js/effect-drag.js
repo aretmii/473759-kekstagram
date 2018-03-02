@@ -20,7 +20,7 @@
     // форматируем число приводим к одному значению после 0.
     window.effectLevel = calc.toFixed(1);
   };
-  //----------------------------------------------------------------------------ОБРАБОТЧИКИ
+  // ----------------------------------------------------------------------------ОБРАБОТЧИКИ
   // обработчик выбора эффекта и наложения эффекта на фото
   // нажимаем на эффект, эффект получает уровень 100%,
   // фотографии добавляется css стиль соотв. эффекту
@@ -64,7 +64,7 @@
       // записываем в value effectVal (скрытый input в разметке)
       window.effectVal.value = window.effectLevel;
       // записываем в переменную текущие стили элемента
-      var strStyle = window.getComputedStyle(effectImgPreview, null);
+      var strStyle = window.getComputedStyle(window.effectImgPreview, null);
       // записываем в переменную стиль filter текущих стилей элемента
       var str = strStyle.filter;
       // записываем в переменную текущее значение увроня эффекта filter (из строчного значения забираем цифры)
@@ -73,7 +73,7 @@
       // из полученного массива берем второе значение - уровень эффекта
       var strVal = strArr[1];
       // заменяем полученное значение на значение от передвигающегося ползунка
-      var result = str.replace(strVal, effectLevel);
+      var result = str.replace(strVal, window.effectLevel);
       // записываем результат в стили фильтра элемента
       window.effectImgPreview.style.webkitFilter = result;
     };
