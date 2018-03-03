@@ -1,11 +1,10 @@
 'use strict';
 // ------------------------------------------------------------------------------СОЗДАНИЕ ДАННЫХ ДЛЯ ФОРМ
-(function () {
-  // var PHOTOS = [];
-  // var COMMENTS = ['Всё отлично!, В целом всё неплохо. Но не всё.', 'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
-  // записываем в переменную DOM элемент
+(function () {  // записываем в переменную DOM элемент
   window.similarPictureElement = document.querySelector('.pictures');
   var pictureTemplate = document.querySelector('#picture-template').content;
+  var filters = document.querySelector('.filters');
+  var filterRecommend = document.querySelector('.filter-recommend');
   // функция создание массива фоток
   var renderPhoto = function (photo) {
 
@@ -25,5 +24,7 @@
       fragment.appendChild(renderPhoto(PHOTOS[j]));
     }
     window.similarPictureElement.appendChild(fragment);
+    filters.classList = ".filters";
   });
+  filterRecommend.addEventListener('click', function () {});
 })();
