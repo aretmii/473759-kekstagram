@@ -1,6 +1,7 @@
 'use strict';
 // ------------------------------------------------------------------------------СОЗДАНИЕ ДАННЫХ ДЛЯ ФОРМ
-(function () {  // записываем в переменную DOM элемент
+(function () {
+  // записываем в переменную DOM элемент
   window.similarPictureElement = document.querySelector('.pictures');
   var pictureTemplate = document.querySelector('#picture-template').content;
   var filters = document.querySelector('.filters');
@@ -24,7 +25,7 @@
       fragment.appendChild(renderPhoto(PHOTOS[j]));
     }
     window.similarPictureElement.appendChild(fragment);
-    filters.classList = ".filters";
+    filters.classList = '.filters';
   });
   filterRecommend.addEventListener('click', function () {});
 })();
