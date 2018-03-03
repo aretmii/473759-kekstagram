@@ -89,14 +89,14 @@
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
       } else if (window.effectImgPreview.className === 'effect-image-preview effect-marvin') {
-        valCount = window.effectLevel + "%";
+        valCount = window.effectLevel + '%';
         val = valCount;
         // заменяем полученное значение на значение от передвигающегося ползунка
         result = str.replace(strVal, val);
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
       } else if (window.effectImgPreview.className === 'effect-image-preview effect-phobos') {
-        valCount = (window.effectLevel * 3 / 100) + "px";
+        valCount = (window.effectLevel * 3 / 100) + 'px';
         val = valCount;
         // заменяем полученное значение на значение от передвигающегося ползунка
         result = str.replace(strVal, val);
