@@ -46,7 +46,7 @@
   var form = document.querySelector('.upload-form');
   // обработчик отправки данных на сервер после нажатия на submit
   form.addEventListener('submit', function (evt) {
-    window.upload(new FormData(form), function (response) {
+    window.upload(new FormData(form), function () {
       uploadOverlay.classList.add('hidden');
     });
     evt.preventDefault();

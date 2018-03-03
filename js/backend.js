@@ -3,7 +3,7 @@
 (function () {
   // URL адреса сервера куда отправляем данные
   var URL = 'https://js.dump.academy/kekstagram';
-  var getURL = 'https://js.dump.academy/kekstagram/data'
+  var getURL = 'https://js.dump.academy/kekstagram/data';
   // ------------------------------------------------------------------------------ПОЛУЧЕНИЕ
   window.load = function (onLoad, onError) {
     var xhr = new XMLHttpRequest();

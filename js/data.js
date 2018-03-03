@@ -5,13 +5,7 @@
   // var COMMENTS = ['Всё отлично!, В целом всё неплохо. Но не всё.', 'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
   // записываем в переменную DOM элемент
   window.similarPictureElement = document.querySelector('.pictures');
-  var picLikes = document.querySelector('.likes-count');
   var pictureTemplate = document.querySelector('#picture-template').content;
-  // функция генерации случайных данных
-  var randomNum = function getRandomNum(min, max) {
-    var i = Math.floor(Math.random() * (max - min)) + min;
-    return i;
-  };
   // функция создание массива фоток
   var renderPhoto = function (photo) {
 

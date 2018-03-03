@@ -16,7 +16,7 @@
     // приводим строковое значение ширины линии к цифрам
     var y = parseInt(q, 10);
     // считаем в проентах. х - 100%; у - ?
-    var calc = y / x*100;
+    var calc = y / x * 100;
     // форматируем число приводим к одному значению после 0.
     var calcPercents = calc.toFixed(0);
     window.effectLevel = calcPercents;
@@ -69,64 +69,44 @@
       var strStyle = window.getComputedStyle(window.effectImgPreview, null);
       // записываем в переменную стиль filter текущих стилей элемента
       var str = strStyle.filter;
-      if (window.effectImgPreview.className == 'effect-image-preview effect-chrome') {
+      if (window.effectImgPreview.className === 'effect-image-preview effect-chrome') {
         // записываем в переменную текущее значение увроня эффекта filter (из строчного значения забираем цифры)
         // /\((.*)\)/  - все что внутри скобок
         var strArr = str.match(/\((.*)\)/);
         // из полученного массива берем второе значение - уровень эффекта
         var strVal = strArr[1];
-        var valCount = window.effectLevel/100;
+        var valCount = window.effectLevel / 100;
         var val = valCount.toFixed(1);
         // заменяем полученное значение на значение от передвигающегося ползунка
         var result = str.replace(strVal, val);
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
-      } else if (window.effectImgPreview.className == 'effect-image-preview effect-sepia') {
-        // записываем в переменную текущее значение увроня эффекта filter (из строчного значения забираем цифры)
-        // /\((.*)\)/  - все что внутри скобок
-        var strArr = str.match(/\((.*)\)/);
-        // из полученного массива берем второе значение - уровень эффекта
-        var strVal = strArr[1];
-        var valCount = window.effectLevel/100;
-        var val = valCount.toFixed(1);
+      } else if (window.effectImgPreview.className === 'effect-image-preview effect-sepia') {
+        valCount = window.effectLevel / 100;
+        val = valCount.toFixed(1);
         // заменяем полученное значение на значение от передвигающегося ползунка
-        var result = str.replace(strVal, val);
+        result = str.replace(strVal, val);
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
-      } else if (window.effectImgPreview.className == 'effect-image-preview effect-marvin') {
-        // записываем в переменную текущее значение увроня эффекта filter (из строчного значения забираем цифры)
-        // /\((.*)\)/  - все что внутри скобок
-        var strArr = str.match(/\((.*)\)/);
-        // из полученного массива берем второе значение - уровень эффекта
-        var strVal = strArr[1];
-        var valCount = window.effectLevel + "%";
-        var val = valCount;
+      } else if (window.effectImgPreview.className === 'effect-image-preview effect-marvin') {
+        valCount = window.effectLevel + "%";
+        val = valCount;
         // заменяем полученное значение на значение от передвигающегося ползунка
-        var result = str.replace(strVal, val);
+        result = str.replace(strVal, val);
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
-      } else if (window.effectImgPreview.className == 'effect-image-preview effect-phobos') {
-        // записываем в переменную текущее значение увроня эффекта filter (из строчного значения забираем цифры)
-        // /\((.*)\)/  - все что внутри скобок
-        var strArr = str.match(/\((.*)\)/);
-        // из полученного массива берем второе значение - уровень эффекта
-        var strVal = strArr[1];
-        var valCount = (window.effectLevel * 3 / 100) + "px";
-        var val = valCount;
+      } else if (window.effectImgPreview.className === 'effect-image-preview effect-phobos') {
+        valCount = (window.effectLevel * 3 / 100) + "px";
+        val = valCount;
         // заменяем полученное значение на значение от передвигающегося ползунка
-        var result = str.replace(strVal, val);
+        result = str.replace(strVal, val);
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
-      } else if (window.effectImgPreview.className == 'effect-image-preview effect-heat') {
-        // записываем в переменную текущее значение увроня эффекта filter (из строчного значения забираем цифры)
-        // /\((.*)\)/  - все что внутри скобок
-        var strArr = str.match(/\((.*)\)/);
-        // из полученного массива берем второе значение - уровень эффекта
-        var strVal = strArr[1];
-        var valCount = (window.effectLevel * 3 / 100);
-        var val = valCount;
+      } else if (window.effectImgPreview.className === 'effect-image-preview effect-heat') {
+        valCount = (window.effectLevel * 3 / 100);
+        val = valCount;
         // заменяем полученное значение на значение от передвигающегося ползунка
-        var result = str.replace(strVal, val);
+        result = str.replace(strVal, val);
         // записываем результат в стили фильтра элемента
         window.effectImgPreview.style.webkitFilter = result;
       }
