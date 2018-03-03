@@ -15,7 +15,7 @@
     var targetEff = event.target;
     // находим id input и записываем его в переменную
     var targetInp = targetEff.id;
-    // не даем при клике по уровню эффекта убирать класс эффекта
+    // не даем при клике по уровню эффекта убирать уровень эффекта
     uploadEffect.addEventListener('click', function (evt) {
       evt.stopPropagation();
     });

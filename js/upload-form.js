@@ -42,4 +42,13 @@
   effectOriginal.addEventListener('mouseup', function () {
     uploadOverlayClose();
   });
+  // записываем в переменную форму из overlay
+  var form = document.querySelector('.upload-form');
+  // обработчик отправки данных на сервер после нажатия на submit
+  form.addEventListener('submit', function (evt) {
+    window.upload(new FormData(form), function (response) {
+      uploadOverlay.classList.add('hidden');
+    });
+    evt.preventDefault();
+  });
 })();
